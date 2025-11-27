@@ -33,6 +33,6 @@ def run_trained_agent(model_path):
 
 if __name__ == "__main__":
     # Change the checkpoint name if needed
-    run_trained_agent("best_model.pt")
+    run_trained_agent("/Users/jayaverma/Deep_Reinforcement_Project/PPO_best_model/best_model.pt")
 
     

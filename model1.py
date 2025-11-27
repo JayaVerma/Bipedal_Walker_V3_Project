@@ -8,28 +8,24 @@ class ActorCritic(nn.Module):
 
         # Shared base network
         self.base = nn.Sequential(
-            nn.Linear(obs_dim, 128),
+            nn.Linear(obs_dim, 256),
             nn.ReLU(),
-            nn.Linear(128, 128),
+            nn.Linear(256, 256),
             nn.ReLU(),
         )
 
         # Actor head (policy)
-        self.actor_mean = nn.Linear(128, act_dim)
-        self.actor_log_std = nn.Parameter(torch.zeros(act_dim))
+        self.actor_mean = nn.Linear(256, act_dim)
+        self.log_std = nn.Parameter(torch.zeros(act_dim))  
+        self.critic = nn.Linear(256, 1)
 
         # Critic head (value)
-        self.critic = nn.Linear(128, 1)
+        self.critic = nn.Linear(256, 1)
 
     def forward(self, obs):
-        # Forward pass through shared layers
         x = self.base(obs)
-
-        # Policy mean and log std
         mean = self.actor_mean(x)
-        log_std = self.actor_log_std.exp()
-
-        # State-value
+        std = torch.exp(self.log_std)  
         value = self.critic(x)
-        return mean, log_std, value
+        return mean, std, value
     

@@ -18,7 +18,8 @@ def train():
 
     buffer = RolloutBuffer()
 
-    max_episodes = 100000
+    max_episodes = 10000
+
     rollout_steps = 2048
     save_interval = 50
 

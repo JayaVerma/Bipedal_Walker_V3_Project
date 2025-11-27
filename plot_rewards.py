@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_rewards(log_file="reward_log.txt"):
+def plot_rewards(log_file="/Users/jayaverma/Deep_Reinforcement_Project/PPO_best_model/reward_log copy.txt"):
     episodes = []
     rewards = []
 
