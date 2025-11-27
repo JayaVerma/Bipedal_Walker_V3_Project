@@ -1,5 +1,4 @@
-Below is a clean, professional **README.md** tailored exactly to your folder structure and project requirements.
-You can copy/paste it directly into your repo.
+
 
 ---
 
